@@ -83,6 +83,8 @@ See details at
 ![comparison1](comparison1.png)
 ![comparison2](comparison2.png)
 
+
+<span id="chinese-document"></span>
 # 中文文档
 ## 定义
 ```swift
