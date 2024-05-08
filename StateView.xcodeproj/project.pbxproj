@@ -15,7 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		466137F02BEB5C44001DC77A /* StateView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = StateView; path = SPM/StateView; sourceTree = "<group>"; };
 		46FD2E772BE91D5000552D92 /* StateView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StateView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46FD2E7A2BE91D5000552D92 /* StateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateView.h; sourceTree = "<group>"; };
 		46FD2E7B2BE91D5000552D92 /* StateView.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StateView.docc; sourceTree = "<group>"; };
@@ -38,7 +37,6 @@
 		46FD2E6D2BE91D5000552D92 = {
 			isa = PBXGroup;
 			children = (
-				466137F02BEB5C44001DC77A /* StateView */,
 				46FD2E792BE91D5000552D92 /* StateView */,
 				46FD2E782BE91D5000552D92 /* Products */,
 			);

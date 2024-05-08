@@ -2,7 +2,7 @@
 A SwiftUI View that simplifies the management of async states of toggles or so.
 
 用优雅的方式处理SwiftUI中状态切换的异步处理。
-
+![Example App](<Example.gif>)
 # 前言 Intro
 ## Have you ever met...
 When the user turns the switch on or off, you need to go through a series of processes before changing the actual state.
@@ -29,14 +29,59 @@ StateView provides an elegant way to help you handle this.
 但灾难还不仅如此：在 SwiftUI 中，你的进一步的处理一般都会放在 `onChange` 里，其中绑定对应的显示状态的变量。如果直接将实际状态同步到显示状态，比如用户打开了，但切换失败了，你需要将关闭状态同步回去。这个时候就会再次调用 `onChange` 里的闭包。因此，你不得不额外加一个变量，或者额外进行条件判断。更灾难的是，如果你的 View 中有多个需要异步操作的 Toggle，你不得不对每一个 Toggle 都执行这样的操作。
 
 StateView 可以帮你优雅地解决这个问题。
+[中文文档](#chinese-document)
 
 # 安装 Installation
 
+### SPM安装方法 Install via SPM
+
+```
+https://github.com/richardjorne/StateViewSPM.git
+```
+
+### 或者 Alternatively
 直接复制 `/StateView/StateView.swift` 到你的工程中即可。
 
 Directly copy `/StateView/StateView.swift` to your workspace directory.
 
-SPM安装方法：
+
+# 使用示例 Example Usage
+
+```swift
+...
+@State private var developerModeOn: Bool = false
+@State private var presentWarning: Bool = false
+...
+StateView(actualState: $developerModeOn) { shownState, actualState, syncPresent in
+    HStack {
+        Text("Developer Mode")
+        Spacer()
+        if shownState.wrappedValue != actualState.wrappedValue {
+            ProgressView()
+        }
+        Toggle(isOn: shownState, label: {
+        })
+        .disabled(shownState.wrappedValue != actualState.   wrappedValue)
+    }
+    .sheet(isPresented: $presentWarning, onDismiss: {
+        syncPresent()
+    }, content: {
+        SettingsWarningView(stateToBeSet: shownState.   wrappedValue, realState: $developerModeOn, isPresented:    $presentWarning)
+    })
+} setFunction: {_ in
+    presentWarning = true
+} unsetFunction: {_ in 
+    presentWarning = true
+}
+```
+
+具体请参考 
+See details at
+`/StateView/StateViewExampleView.swift`
+
+# 使用前后对比 Comparison with and without StateView
+![comparison1](comparison1.png)
+![comparison2](comparison2.png)
 
 # 中文文档
 ## 定义

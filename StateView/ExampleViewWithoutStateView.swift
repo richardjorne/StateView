@@ -2,7 +2,7 @@
 //  ExampleViewWithoutStateView.swift
 //  StateView
 //
-//  Created by mito on 2024/5/7.
+//  Created by Richard Jorne on 2024/5/7.
 //
 
 import SwiftUI
